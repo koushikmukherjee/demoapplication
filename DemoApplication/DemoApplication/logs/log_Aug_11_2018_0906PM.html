@@ -1,0 +1,18 @@
+
+<table border='1' cellspacing='1' width='100%'><tr><td>Date</td><td>Time</td><td>Source</td><td>Event</td><td>Message</td><td>StackTrace</td><td>Condition</td></tr><tr><td valign="top">8/11/2018&#160;</td><td valign="top">9:06:23 PM&#160;</td><td valign="top"><a name="1" href="#1">1.StudentModel</a>&#160;</td><td valign="top">GetStudent&#160;</td><td valign="top">An error occurred while executing the command definition. See the inner exception for details.&#160;</td><td valign="top">   at System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   at System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Enumerable.FirstOrDefault[TSource](IEnumerable`1 source)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__1[TResult](IEnumerable`1 sequence)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Demo.Service.StudentService.GetStudentDetail(Guid id) in D:\DevArea\Projects\DemoApplication\Demo.Service\Student\Student.cs:line 23
+   at Demo.Model.StudentModel.GetStudent(Guid id) in D:\DevArea\Projects\DemoApplication\Demo.Model\Student\StudentModel.cs:line 52&#160;</td><td valign="top">&#160;</td></tr>

@@ -1,0 +1,97 @@
+﻿@model Demo.Model.StudentModel
+    @using Demo.Utility.Util
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student List</h2>
+<div style="float:right;padding: 10px 40px 10px 20px;">
+    <a href="@Url.Action("ManageStudent", "Student")">
+        <span style="cursor: pointer" class="glyphicon glyphicon-plus-sign" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Add New"></span>
+        <span>Add New</span>
+    </a>
+    </div>
+<table style="width:100%" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th width="25%">
+                Name
+            </th>
+            <th width="30%%">
+                Email Address
+            </th>
+            <th width="15%">
+                Mobile Number
+            </th>
+            <th width="12%">
+                View
+            </th>
+            <th width="8%">
+                Update
+            </th>
+            <th width="10%">
+                Delete
+            </th>
+        </tr>
+        </thead>
+    <tbody>
+        @if (Model.lstStudent.Any())
+        {
+            foreach (var item in Model.lstStudent)
+            {
+                <tr>
+                    <td>
+                        @item.FullName
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.Mobile
+                    </td>
+                    <td>
+                        <a class="minus-icon" href="@Url.Action("StudentView", "Student", new { id = item.UserID })">
+                            <span style="cursor: pointer" class="glyphicon glyphicon-eye-open" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="View Detail"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="minus-icon" href="@Url.Action("ManageStudent", "Student", new { id = item.UserID })">
+                            <span style="cursor: pointer" class="glyphicon glyphicon-edit" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Update"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" data-toggle="modal" id="sector-delete" data-target="deleteModal" onclick="javascript:ShowDeletePopup('@item.UserID','Are you sure want to delete?')">
+                            <span style="cursor: pointer" class="glyphicon glyphicon-trash" aria-hidden="true" data-toggle="tooltip" data-placement="top" title="Delete"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">
+                    No Records Found
+                </td>
+            </tr>
+        }
+        </tbody>
+</table>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true" style="margin-top: -10px;">×</button>
+                <div class="bootbox-body">
+                    Are you sure want to delete?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-bb-handler="cancel" type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                <button data-bb-handler="confirm" type="button" class="btn btn-primary" id="delete-ok">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
